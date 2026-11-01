@@ -1,0 +1,18 @@
+<section id="results" data-transition="fade" data-section="What the measurements show, including quantization and close range." style="background:#F6F8FB;color:#1A2640;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:36px">
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:72px;font-weight:600;line-height:1.1;color:#12264A">Float model: 0.854 mAP@50, uneven by source</h2>
+<div style="display:flex;gap:48px;align-items:center">
+<div style="flex:1">
+<table style="font-size:30px;color:#1A2640">
+<tr><th style="width:28%;text-align:left">Subset</th><th style="width:22%;text-align:right">mAP@50</th><th style="width:25%;text-align:right">mAP@50-95</th><th style="width:25%;text-align:right">P / R</th></tr>
+<tr style="background:#FFFFFF"><td>Overall</td><td style="text-align:right">0.854</td><td style="text-align:right">0.501</td><td style="text-align:right">0.850 / 0.762</td></tr>
+<tr style="background:#EDF2F8"><td>HERIDAL</td><td style="text-align:right">0.762</td><td style="text-align:right">0.415</td><td style="text-align:right">0.716 / 0.702</td></tr>
+<tr style="background:#FFFFFF"><td>SARD</td><td style="text-align:right">0.949</td><td style="text-align:right">0.622</td><td style="text-align:right">0.973 / 0.897</td></tr>
+</table>
+</div>
+<img src="/_blob/0c9d4a683d71ff64db7f808945d27e83" alt="Precision-recall curve for the person class on the validation split, mAP@0.5 0.853" style="width:660px;height:440px;object-fit:contain;background:#FFFFFF;border:1px solid #D5DEE9;border-radius:12px">
+</div>
+<p style="font-size:30px;line-height:1.4;color:#33415C;width:1500px">SARD lifts the overall figure. On HERIDAL alone the model reaches 0.762. Tile-level scores are not comparable with published full-image results.</p>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#5B6B82;width:1300px">Overall from the Ultralytics validator; per-source from our IoU 0.5 scorer. P / R at each row’s F1-optimal confidence.</p>
+<p style="position:absolute;right:128px;bottom:64px;font-size:24px;color:#5B6B82;width:200px;text-align:right">6 / 11</p>
+<aside>Overall, 0.854 mAP at IoU 0.5 and 0.501 across IoU thresholds. But split by source, SARD is 0.949 and HERIDAL, the wilderness benchmark, is 0.762. So the headline number is flattered by SARD. These are tile-level scores on our own split, so I do not claim they beat published HERIDAL results, which use full images and different protocols.</aside>
+</section>

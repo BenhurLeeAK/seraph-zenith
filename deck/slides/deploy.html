@@ -1,0 +1,27 @@
+<section id="deploy" data-transition="fade" style="background:#F6F8FB;color:#1A2640;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:72px;font-weight:600;line-height:1.1;color:#12264A">Compiling YOLOv8s for the Hailo-8</h2>
+<div style="display:flex;gap:48px;align-items:flex-start">
+<div style="flex:3;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:10px;border-left:6px solid #0F6FB0;padding:4px 0 4px 28px">
+<h3 style="font-size:34px;font-weight:600">Export and compile</h3>
+<p style="font-size:28px;line-height:1.4;color:#33415C">ONNX (opset 11), then HEF with Dataflow Compiler 3.34 and Model Zoo 2.19.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;border-left:6px solid #0F6FB0;padding:4px 0 4px 28px">
+<h3 style="font-size:34px;font-weight:600">Compilation fix</h3>
+<p style="font-size:28px;line-height:1.4;color:#33415C">Automatic end-node choice picked post-activation outputs. We set the six raw convolutional outputs (two branches, three scales) so on-chip NMS works.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;border-left:6px solid #B84E08;padding:4px 0 4px 28px">
+<h3 style="font-size:34px;font-weight:600">INT8 calibration</h3>
+<p style="font-size:28px;line-height:1.4;color:#33415C">About 300 validation images at a reduced optimization level, below the recommended 1,024.</p>
+</div>
+</div>
+<div style="flex:2;display:flex;flex-direction:column;gap:20px;background:#12264A;padding:48px;border-radius:16px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:140px;font-weight:600;line-height:1;color:#6CC4F0">185</p>
+<h3 style="font-size:36px;font-weight:600;color:#F6F8FB">frames per second</h3>
+<p style="font-size:26px;line-height:1.4;color:#C9D8E8">Model only: one 640×640 tile per inference, 927 frames. Excludes camera, tiling and post-processing.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#5B6B82;width:1300px">ICOIICS_368 · Edge-Deployed Human Detection</p>
+<p style="position:absolute;right:128px;bottom:64px;font-size:24px;color:#5B6B82;width:200px;text-align:right">5 / 11</p>
+<aside>Compilation had one non-obvious problem: the compiler chose the post-activation outputs as end nodes, which the Hailo NMS script cannot use. Naming the six raw convolution outputs fixed it. The 185 frames per second is the model alone on one tile; the full tiled pipeline will be slower and I have not measured it yet. Calibration used about 300 validation images, which is fewer than recommended and is a limitation I come back to.</aside>
+</section>

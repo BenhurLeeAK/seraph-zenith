@@ -1,0 +1,22 @@
+<section id="int8" data-transition="fade" style="background:#F6F8FB;color:#1A2640;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:36px">
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:72px;font-weight:600;line-height:1.1;color:#12264A">INT8 compilation costs accuracy</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#12264A;padding:36px 44px;border-radius:16px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:96px;font-weight:600;line-height:1;color:#6CC4F0">0.849 → 0.781</p>
+<p style="font-size:30px;color:#C9D8E8">mAP@50, float to INT8 HEF</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#12264A;padding:36px 44px;border-radius:16px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:96px;font-weight:600;line-height:1;color:#F2A266">537 → 958</p>
+<p style="font-size:30px;color:#C9D8E8">false positives at confidence 0.30 (+78%)</p>
+</div>
+</div>
+<table style="font-size:28px;color:#1A2640">
+<tr><th style="width:40%;text-align:left">Metric</th><th style="width:30%;text-align:right">Float</th><th style="width:30%;text-align:right">INT8 (HEF)</th></tr>
+<tr style="background:#FFFFFF"><td>mAP@50-95</td><td style="text-align:right">0.547</td><td style="text-align:right">0.365</td></tr>
+<tr style="background:#EDF2F8"><td>HERIDAL / SARD mAP@50</td><td style="text-align:right">0.748 / 0.953</td><td style="text-align:right">0.720 / 0.860</td></tr>
+<tr style="background:#FFFFFF"><td>Precision / recall at 0.30</td><td style="text-align:right">0.832 / 0.774</td><td style="text-align:right">0.737 / 0.780</td></tr>
+</table>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#5B6B82;width:1400px">Same scorer for both models, score floor 0.2. Recall is kept; precision and box tightness are lost.</p>
+<p style="position:absolute;right:128px;bottom:64px;font-size:24px;color:#5B6B82;width:200px;text-align:right">8 / 11</p>
+<aside>This addresses the reviewers' quantization question. With the same scoring code on both models, mAP at 0.5 falls from 0.849 to 0.781. Recall is preserved, but false positives rise by 78 percent at confidence 0.30, mostly on SARD tiles, and box tightness drops: mAP over IoU thresholds goes from 0.547 to 0.365. I have not investigated the cause yet. Calibration used validation images, which may flatter the compiled model, and was small, which may hurt it, so this is not a clean measure of INT8 loss; a recompile with 1,024 training tiles is planned.</aside>
+</section>

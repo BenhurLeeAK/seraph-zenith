@@ -1,0 +1,31 @@
+<section id="field" data-transition="fade" style="background:#F6F8FB;color:#1A2640;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:72px;font-weight:600;line-height:1.1;color:#12264A">Close range (3–7 m) is outside the operating range</h2>
+<div style="display:flex;gap:48px;align-items:flex-start">
+<div style="flex:1">
+<table style="font-size:30px;color:#1A2640">
+<tr><th style="width:16%;text-align:left">Dist.</th><th style="width:18%;text-align:right">People</th><th style="width:12%;text-align:right">TP</th><th style="width:34%;text-align:right">Rate (95% CI)</th><th style="width:20%;text-align:right">FP / img</th></tr>
+<tr style="background:#FFFFFF"><td>3 m</td><td style="text-align:right">31</td><td style="text-align:right">0</td><td style="text-align:right">0.0% (0.0–11.0)</td><td style="text-align:right">2.9</td></tr>
+<tr style="background:#EDF2F8"><td>5 m</td><td style="text-align:right">27</td><td style="text-align:right">2</td><td style="text-align:right">7.4% (2.1–23.4)</td><td style="text-align:right">4.3</td></tr>
+<tr style="background:#FFFFFF"><td>7 m</td><td style="text-align:right">30</td><td style="text-align:right">6</td><td style="text-align:right">20.0% (9.5–37.3)</td><td style="text-align:right">5.6</td></tr>
+</table>
+<p style="font-size:26px;line-height:1.4;color:#33415C;padding:20px 0 0">45 images, 15 per distance, native 1456×1088. HEF at confidence 0.30, IoU 0.5.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px;border-left:6px solid #0F6FB0;padding:2px 0 2px 24px">
+<h3 style="font-size:32px;font-weight:600">3 m</h3>
+<p style="font-size:28px;line-height:1.4;color:#33415C">A person is taller than one tile (about 986 px). Boxes land on feet, legs and a phone.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;border-left:6px solid #0F6FB0;padding:2px 0 2px 24px">
+<h3 style="font-size:32px;font-weight:600">5–7 m</h3>
+<p style="font-size:28px;line-height:1.4;color:#33415C">People are found, but boxes sit low. Wet patches give confident false boxes (0.69–0.81).</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;border-left:6px solid #B84E08;padding:2px 0 2px 24px">
+<h3 style="font-size:32px;font-weight:600;color:#B84E08">Not yet measured</h3>
+<p style="font-size:28px;line-height:1.4;color:#33415C">The intended 10–15 m range, with this protocol.</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#5B6B82;width:1300px">ICOIICS_368 · Edge-Deployed Human Detection</p>
+<p style="position:absolute;right:128px;bottom:64px;font-size:24px;color:#5B6B82;width:200px;text-align:right">9 / 11</p>
+<aside>To see what happens outside the aerial training distribution, we ran the deployed HEF on 45 ground-level images at 3, 5 and 7 metres, with counts and confidence intervals as the reviewers asked. Detection rates are 0, 7 and 20 percent. At 3 metres a person is taller than a 640-pixel tile, so the detector fires on body parts. At 5 to 7 metres people are found but boxes sit low, and wet patches on the ground produce confident false boxes. The float model gave nearly the same counts, so quantization is not the cause. This range is outside what a tiled detector for small, distant people is designed for. I have not yet measured the intended 10 to 15 metre range with this protocol, so I make no claim there.</aside>
+</section>

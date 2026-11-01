@@ -1,0 +1,28 @@
+<section id="limits" data-transition="fade" data-section="Limits, open items and takeaways." style="background:#F6F8FB;color:#1A2640;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:72px;font-weight:600;line-height:1.1;color:#12264A">Limits and open items</h2>
+<div style="display:flex;gap:32px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;padding:40px;border:1px solid #D5DEE9;border-radius:16px">
+<h3 style="font-size:36px;font-weight:600;color:#B84E08">Limits</h3>
+<ul style="font-size:28px;line-height:1.45;color:#33415C">
+<li>No airborne validation; 18–35 m altitude is a geometric estimate</li>
+<li>Calibration on about 300 validation images, reduced level</li>
+<li>Tile-level scores; possible near-duplicate SARD frames</li>
+<li>185 FPS is model only, not the tiled pipeline</li>
+<li>RGB only, daylight</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;padding:40px;border:1px solid #D5DEE9;border-radius:16px">
+<h3 style="font-size:36px;font-weight:600;color:#0F6FB0">Next</h3>
+<ul style="font-size:28px;line-height:1.45;color:#33415C">
+<li>Measure 10 m and 15 m with repeated sessions</li>
+<li>Recompile with 1,024 training tiles</li>
+<li>Check for SARD train/validation leakage</li>
+<li>Measure end-to-end tiled FPS</li>
+<li>Validate detection in flight at altitude</li>
+</ul>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#5B6B82;width:1300px">ICOIICS_368 · Edge-Deployed Human Detection</p>
+<p style="position:absolute;right:128px;bottom:64px;font-size:24px;color:#5B6B82;width:200px;text-align:right">10 / 11</p>
+<aside>These are the limits I want you to know about. No flight validation yet, so the 18 to 35 metre altitude is geometry, not a measurement. The calibration set was small and came from validation images. Scores are tile-level and SARD frames come from video, so duplicates between splits are possible. The 185 FPS is the model alone. The right column is what comes next, starting with the 10 to 15 metre measurements.</aside>
+</section>

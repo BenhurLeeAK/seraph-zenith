@@ -1,0 +1,20 @@
+<section id="operating" data-transition="fade" style="background:#F6F8FB;color:#1A2640;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:72px;font-weight:600;line-height:1.1;color:#12264A">One model, two operating points</h2>
+<div style="display:flex;gap:48px;align-items:center">
+<div style="flex:1;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:10px;background:#FFFFFF;padding:36px;border:1px solid #D5DEE9;border-radius:16px">
+<h3 style="font-size:34px;font-weight:600;color:#0F6FB0">Confusion matrix: confidence 0.25</h3>
+<p style="font-size:30px;line-height:1.4;color:#33415C">82.0% precision, 80.0% recall. TP 2,755, FP 603, FN 690 (IoU 0.45).</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#FFFFFF;padding:36px;border:1px solid #D5DEE9;border-radius:16px">
+<h3 style="font-size:34px;font-weight:600;color:#0F6FB0">Headline: confidence about 0.34</h3>
+<p style="font-size:30px;line-height:1.4;color:#33415C">85.0% precision, 76.2% recall, F1 0.805 (IoU 0.5). At the deployed 0.30: 83.2% and 77.4%.</p>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#B84E08">A higher threshold trades recall for precision. The figures do not conflict.</p>
+</div>
+<img src="/_blob/6a91331b6c8a3884299433f54c055abb" alt="Confusion matrix on the validation split at confidence 0.25" style="width:640px;height:480px;object-fit:contain;background:#FFFFFF;border:1px solid #D5DEE9;border-radius:12px">
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#5B6B82;width:1300px">ICOIICS_368 · Edge-Deployed Human Detection</p>
+<p style="position:absolute;right:128px;bottom:64px;font-size:24px;color:#5B6B82;width:200px;text-align:right">7 / 11</p>
+<aside>This slide answers a reviewer question. The confusion matrix is drawn at confidence 0.25 and gives 82 percent precision and 80 percent recall. The headline 85 and 76 are at the F1-optimal confidence of about 0.34. It is the same model at two thresholds. Note the matrix caption in the original paper had false positives and false negatives swapped; it is corrected now: 603 false positives, 690 false negatives.</aside>
+</section>

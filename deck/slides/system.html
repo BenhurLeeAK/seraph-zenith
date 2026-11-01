@@ -1,0 +1,41 @@
+<section id="system" data-transition="fade" data-section="How the detector was trained and compiled for the Hailo-8." style="background:#F6F8FB;color:#1A2640;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:72px;font-weight:600;line-height:1.1;color:#12264A">One camera, a Pi 5 and a Hailo-8 NPU</h2>
+<div style="display:flex;align-items:center;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#12264A;padding:36px;border-radius:16px">
+<h3 style="font-size:36px;font-weight:600;color:#F6F8FB">Capture</h3>
+<p style="font-size:28px;line-height:1.35;color:#C9D8E8">IMX296 global shutter, 1456×1088</p>
+</div>
+<x-shape kind="arrow-right" style="width:72px;height:40px;background:#0F6FB0"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#12264A;padding:36px;border-radius:16px">
+<h3 style="font-size:36px;font-weight:600;color:#F6F8FB">SAHI tiling</h3>
+<p style="font-size:28px;line-height:1.35;color:#C9D8E8">640×640 tiles, 20% overlap</p>
+</div>
+<x-shape kind="arrow-right" style="width:72px;height:40px;background:#0F6FB0"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#0F6FB0;padding:36px;border-radius:16px">
+<h3 style="font-size:36px;font-weight:600;color:#FFFFFF">Hailo-8</h3>
+<p style="font-size:28px;line-height:1.35;color:#EAF4FB">YOLOv8s, INT8, 26 TOPS</p>
+</div>
+<x-shape kind="arrow-right" style="width:72px;height:40px;background:#0F6FB0"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#12264A;padding:36px;border-radius:16px">
+<h3 style="font-size:36px;font-weight:600;color:#F6F8FB">Merge</h3>
+<p style="font-size:28px;line-height:1.35;color:#C9D8E8">Tile results and NMS</p>
+</div>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;border-top:4px solid #0F6FB0;padding:24px 0 0">
+<h3 style="font-size:32px;font-weight:600">Companion computer</h3>
+<p style="font-size:28px;line-height:1.4;color:#33415C">Raspberry Pi 5 (8 GB) with the AI HAT+</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;border-top:4px solid #0F6FB0;padding:24px 0 0">
+<h3 style="font-size:32px;font-weight:600">Airframe</h3>
+<p style="font-size:28px;line-height:1.4;color:#33415C">Quadrotor, GOKU H743 Pro controller, four 2212 motors</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;border-top:4px solid #B84E08;padding:24px 0 0">
+<h3 style="font-size:32px;font-weight:600">Sensing</h3>
+<p style="font-size:28px;line-height:1.4;color:#33415C">RGB only: no thermal or depth in this iteration</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#5B6B82;width:1300px">ICOIICS_368 · Edge-Deployed Human Detection</p>
+<p style="position:absolute;right:128px;bottom:64px;font-size:24px;color:#5B6B82;width:200px;text-align:right">3 / 11</p>
+<aside>The platform: a global-shutter camera so there is no rolling-shutter smear in flight, a Raspberry Pi 5, and a Hailo-8 accelerator rated at 26 TOPS. Each frame is cut into overlapping 640 by 640 tiles so that small, distant people keep their size, the tiles go through YOLOv8s on the Hailo, and the results are merged. This version is RGB only.</aside>
+</section>

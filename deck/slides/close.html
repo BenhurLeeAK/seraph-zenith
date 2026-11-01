@@ -1,0 +1,24 @@
+<section id="close" data-transition="fade" style="background:#12264A;color:#EAF1F8;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:72px;font-weight:600;line-height:1.1;color:#F6F8FB">Three takeaways</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;border-top:6px solid #6CC4F0;padding:28px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:88px;font-weight:600;line-height:1;color:#6CC4F0">0.854</p>
+<p style="font-size:30px;line-height:1.4;color:#C9D8E8">mAP@50 overall in float, but only 0.762 on HERIDAL alone.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;border-top:6px solid #F2A266;padding:28px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:88px;font-weight:600;line-height:1;color:#F2A266">185 FPS</p>
+<p style="font-size:30px;line-height:1.4;color:#C9D8E8">on the Hailo-8, but INT8 drops mAP@50 to 0.781 and adds 78% more false positives.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;border-top:6px solid #6CC4F0;padding:28px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:88px;font-weight:600;line-height:1;color:#6CC4F0">3–7 m</p>
+<p style="font-size:30px;line-height:1.4;color:#C9D8E8">is outside the operating range; fly at the scale the model was trained on.</p>
+</div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:600;color:#F6F8FB">Thank you. Questions?</p>
+<p style="font-size:28px;color:#C9D8E8;width:700px;text-align:right">Benhur Lee A K · Annie Rose Nirmala. D</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#9DB2C9;width:1300px">ICOIICS 2026 · Paper ICOIICS_368</p>
+<p style="position:absolute;right:128px;bottom:64px;font-size:24px;color:#9DB2C9;width:200px;text-align:right">11 / 11</p>
+<aside>To summarise. One: the float model reaches 0.854 mAP at 0.5 overall, but HERIDAL alone is 0.762. Two: it runs at 185 frames per second on the Hailo-8 as a model, but INT8 compilation costs accuracy and adds false positives. Three: at 3 to 7 metres it does not work well, so flight altitude has to match the scale the model was trained on. Thank you; I am happy to take questions.</aside>
+</section>
