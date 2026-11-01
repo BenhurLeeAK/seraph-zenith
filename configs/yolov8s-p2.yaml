@@ -1,0 +1,53 @@
+# YOLOv8s with an added P2 (stride-4) detection head for small/distant
+# object detection -- relevant given HERIDAL's ~64x64px average person
+# bounding box, many well below that after altitude/scale variation.
+#
+# This is the standard community P2-head variant of the Ultralytics
+# YOLOv8 architecture. Verify this matches your installed `ultralytics`
+# package version's expected schema (architecture YAML format has
+# changed slightly across versions) -- if `model.train()` errors on
+# loading this config, check `ultralytics/cfg/models/v8/yolov8-p2.yaml`
+# in your installed package for the exact current syntax and adapt.
+
+nc: 1  # number of classes (person)
+scales:
+  s: [0.33, 0.50, 1024]  # YOLOv8s scaling
+
+backbone:
+  - [-1, 1, Conv, [64, 3, 2]]        # 0-P1/2
+  - [-1, 1, Conv, [128, 3, 2]]       # 1-P2/4
+  - [-1, 3, C2f, [128, True]]
+  - [-1, 1, Conv, [256, 3, 2]]       # 3-P3/8
+  - [-1, 6, C2f, [256, True]]
+  - [-1, 1, Conv, [512, 3, 2]]       # 5-P4/16
+  - [-1, 6, C2f, [512, True]]
+  - [-1, 1, Conv, [1024, 3, 2]]      # 7-P5/32
+  - [-1, 3, C2f, [1024, True]]
+  - [-1, 1, SPPF, [1024, 5]]         # 9
+
+head:
+  - [-1, 1, nn.Upsample, [None, 2, "nearest"]]
+  - [[-1, 6], 1, Concat, [1]]
+  - [-1, 3, C2f, [512]]              # 12 (P4)
+
+  - [-1, 1, nn.Upsample, [None, 2, "nearest"]]
+  - [[-1, 4], 1, Concat, [1]]
+  - [-1, 3, C2f, [256]]              # 15 (P3)
+
+  - [-1, 1, nn.Upsample, [None, 2, "nearest"]]
+  - [[-1, 2], 1, Concat, [1]]
+  - [-1, 3, C2f, [128]]              # 18 (P2 -- new small-object head)
+
+  - [-1, 1, Conv, [128, 3, 2]]
+  - [[-1, 15], 1, Concat, [1]]
+  - [-1, 3, C2f, [256]]              # 21 (P3/8-medium)
+
+  - [-1, 1, Conv, [256, 3, 2]]
+  - [[-1, 12], 1, Concat, [1]]
+  - [-1, 3, C2f, [512]]              # 24 (P4/16-large)
+
+  - [-1, 1, Conv, [512, 3, 2]]
+  - [[-1, 9], 1, Concat, [1]]
+  - [-1, 3, C2f, [1024]]             # 27 (P5/32-xlarge)
+
+  - [[18, 21, 24, 27], 1, Detect, [nc]]  # Detect(P2, P3, P4, P5)

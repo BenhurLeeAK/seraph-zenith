@@ -1,0 +1,32 @@
+# SAR-specific augmentation hyperparameters.
+# Passed to Ultralytics training via --cfg or hyp overrides.
+#
+# Rationale (from research):
+# - Global shutter camera (IMX296) doesn't need motion-blur compensation
+#   augmentation the way rolling-shutter pipelines do -- kept minimal.
+# - Heavy mosaic + rotation to simulate varied altitude/angle and to help
+#   the model learn partial-occlusion robustness (debris, vegetation).
+# - Wide HSV/brightness jitter for lighting variation across terrain types.
+# - copy_paste helps with occluded/unusual-pose target diversity (prone,
+#   seated, partially hidden) -- directly targets the "stranded human"
+#   use case rather than generic upright-pedestrian detection.
+
+hsv_h: 0.015       # hue augmentation
+hsv_s: 0.7         # saturation -- wide range for varied terrain/lighting
+hsv_v: 0.5         # brightness -- wide range for varied lighting conditions
+
+degrees: 15.0      # rotation -- drone can approach from any heading
+translate: 0.1
+scale: 0.5         # scale jitter -- simulates altitude variation
+shear: 0.0
+perspective: 0.0
+
+flipud: 0.3        # some vertical flip -- aerial imagery has no fixed "up"
+fliplr: 0.5
+
+mosaic: 1.0        # heavy mosaic -- helps small/occluded object learning
+mixup: 0.15
+copy_paste: 0.3    # helps occlusion/unusual-pose diversity
+
+# Deliberately NOT emphasizing motion blur augmentation -- global shutter
+# sensor already avoids the artifacts this would compensate for.

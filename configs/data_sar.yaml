@@ -1,0 +1,10 @@
+# Dataset config for Stage 2: fine-tuning on tiled HERIDAL + SARD
+# Path is relative to this file's location when passed to Ultralytics,
+# or use an absolute path if running from a different working directory.
+
+path: ../data/processed/tiled
+train: train/images
+val: val/images
+
+names:
+  0: person
