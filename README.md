@@ -43,3 +43,15 @@ End-to-end tiled FPS not measured. Calibration used about 300 validation images.
 - TODO: add training scripts, Hailo compile steps and the Pi inference script.
 
 Paper: "Edge-Deployed Human Detection for Drone-Based Search and Rescue", ICOIICS 2026.
+
+## Hardware and system design
+![Pipeline](docs/images/pipeline_overview.png)
+![System architecture](docs/images/system_architecture.png)
+![Annotated CAD](docs/images/annotated_cad_cross_section.png)
+![CAD assembly](docs/images/cad_assembly.png)
+![Seraph Zenith MVP airframe](docs/images/mvp_airframe.jpg)
+
+Static-load FEA (SolidWorks): peak von Mises stress 35.3 MPa, factor of safety about 5, maximum displacement 0.10 mm at the battery bay.
+
+![FEA von Mises](docs/images/fea_von_mises.png)
+![FEA displacement](docs/images/fea_displacement.png)
