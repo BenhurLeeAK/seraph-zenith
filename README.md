@@ -11,6 +11,17 @@ Seraph Zenith detects people on the drone itself: global-shutter camera, Raspber
 3. Tile boxes are mapped back to frame coordinates and merged with NMS.
 Navigation: RTAB-Map SLAM into ArduPilot EKF3 via MAVLink odometry (non-GPS flight). A 6-class hazard model is in progress.
 
+## Hardware and system design
+![Pipeline](docs/images/pipeline_overview.png)
+![System architecture](docs/images/system_architecture.png)
+![Annotated CAD](docs/images/annotated_cad_cross_section.png)
+![CAD assembly](docs/images/cad_assembly.png)
+![Seraph Zenith MVP airframe](docs/images/mvp_airframe.jpg)
+
+Static-load FEA (SolidWorks): peak von Mises stress 35.3 MPa, factor of safety about 5, maximum displacement 0.10 mm at the battery bay.
+![FEA von Mises](docs/images/fea_von_mises.png)
+![FEA displacement](docs/images/fea_displacement.png)
+
 ## Results (human detection, tile-level validation split: 2,424 tiles, 3,445 people)
 | | mAP@50 | mAP@50-95 |
 |---|---|---|
